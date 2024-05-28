@@ -1,4 +1,15 @@
 <?php
+    //Iniciar la gestion de sesiones
+    session_start();
+
+    //Si existe una sesion
+    if(isset($_SESSION["usuario"]))
+    {
+        //Redireccionar al inicio
+        header("location: ".$GLOBALS['ruta_raiz']."/inicio");
+        exit();
+    }
+    
     //Controlar el tipo de solicitud
     switch($_SERVER['REQUEST_METHOD']){
         case 'GET':
@@ -34,34 +45,38 @@
         //Instanciar el modelo
         $objUsuario = new Usuario();
 
-        //Leer las variable
-        $usuario = $_POST['txtUsuario'];
-        $clave = $_POST['txtClave'];
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
+            //Leer las variable
+            $usuario = $_POST['txtUsuario'];
+            $clave = $_POST['txtClave'];
 
-        //Ejecutar el metodo de busqueda
-        $objUsuario = $objUsuario->getBuscarByUsuario($usuario);
-        
-        //Verificar datos
-        if($objUsuario){
-            if(password_verify($clave, $objUsuario->clave)){
-                //session_start();
-                //$_SESSION['usuario'] = $objUsuario->usuario;
-                header("Location: ".$GLOBALS['ruta_raiz']."/inicio");
+            //Ejecutar el metodo de busqueda
+            $objUsuario = $objUsuario->getBuscarByUsuario($usuario);
+            //Verificar datos
+            if($objUsuario){
+                if(password_verify($clave, $objUsuario->clave)){
+                   //Crear la variable de sesion
+				    $_SESSION['usuario'] = $usuario;
+                    header("Location: ".$GLOBALS['ruta_raiz']."/inicio");
+                }else{
+                    $usuario = $objUsuario->usuario;
+                    $clave = $_POST['txtClave'];
+                    $verificar = "Contraseña <br> incorrecta";
+                    
+                    //Armando la Vista
+                    require_once("views/inicio/acceso.php");
+                }
             }else{
-                $usuario = $objUsuario->usuario;
+                $usuario = "Usuario Incorrecto";
                 $clave = $_POST['txtClave'];
-                $verificar = "Contraseña <br> incorrecta";
-                
+                $verificar = "";
                 //Armando la Vista
                 require_once("views/inicio/acceso.php");
             }
-        }else{
-            $usuario = "Usuario Incorrecto";
-            $clave = $_POST['txtClave'];
-            $verificar = "";
-            //Armando la Vista
-            require_once("views/inicio/acceso.php");
         }
+        
+        
+        
         
     }
 ?>
