@@ -1,0 +1,11 @@
+#Configurar el APACHE localmente
+
+#Activar la re-escritura de las reglas local
+RewriteEngine on
+
+RewriteBase /303/trabajoFinal/
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#Redireccionar todas las solicitudes
+#al archivo inicio.php
+RewriteRule ^(.*)$ routes.php?ruta=$1 [L,QSA]
