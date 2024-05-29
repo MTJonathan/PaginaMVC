@@ -52,7 +52,8 @@
 
             //Ejecutar el metodo de busqueda
             $objUsuario = $objUsuario->getBuscarByUsuario($usuario);
-            //Verificar datos
+            
+            //Verificar si el usuario existe
             if($objUsuario){
                 if(password_verify($clave, $objUsuario->clave)){
                    //Crear la variable de sesion

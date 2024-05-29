@@ -1,39 +1,32 @@
-/* Estilos generales para el menú */
+/* Estilos generales de la barra de navegación */
 .menu-principal {
-    background-color: white; /* Fondo blanco */
-    padding: 8px; /* Espacio interno reducido */
-    border-bottom: 2px solid #ccc; /* Borde inferior gris claro */
+    display: flex; /* Activa Flexbox */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    background-color: #333;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
 .menu-principal .enlace {
     display: inline-block;
-    padding: 8px 12px; /* Padding ajustado */
+    padding: 8px 15px; /* Ajusta el padding para el tamaño deseado */
     text-decoration: none;
-    color: #333; /* Color de texto gris oscuro */
-    font-weight: bold; /* Texto en negrita */
+    color: white; /* Color de texto oscuro */
+    font-weight: bold;
     border: none;
+    margin: 0 5px; /* Margen entre los enlaces */
     border-radius: 0; /* Sin bordes redondeados */
-    margin-right: 10px; /* Espacio entre elementos */
-    transition: background-color 0.3s ease; /* Transición suave */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
 }
 
-/* Estilo para el enlace activo */
-.menu-principal .activo {
-    background-color: #e0f2f1; /* Color azul claro de fondo */
-    color: #00695c; /* Color de texto verde azulado */
-    border-bottom: 2px solid #00695c; /* Borde inferior verde azulado */
+/* Estilo para la página activa */
+body[data-pagina="inicio"] .menu-principal .enlace[data-pagina="inicio"],
+body[data-pagina="miUsuario"] .menu-principal .enlace[data-pagina="miUsuario"] {
+    background-color: #e0e0e0; /* Color de fondo gris más oscuro para la página activa */
+    color: #333; /* Color de texto más oscuro para la página activa */
 }
 
 /* Efecto hover para los enlaces */
 .menu-principal .enlace:hover {
-    background-color: #f5f5f5; /* Color gris muy claro al pasar el mouse */
-}
-
-body[data-pagina="inicio"] {
-    background-color: #e0f2f1; /* Color azul claro de fondo */
-}
-
-/* Estilo para la página de servicios */
-body[data-pagina="miUsuario"] {
-    background-color: #e0f2f1; /* Color azul claro de fondo */
+    background-color: #ddd; /* Color gris más claro al pasar el mouse */
 }

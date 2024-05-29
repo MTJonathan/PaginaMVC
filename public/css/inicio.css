@@ -1,0 +1,31 @@
+body{
+    background-color: #E6E6FA;
+}
+.h1-inicio{
+    width: 125px;
+    position: relative;
+    left: 2%;
+}
+.h2-inicio{
+    width: 500px;
+    position: relative;
+    left: 2%;
+}
+.enlace-a{
+    position: relative;
+    left: 90%;
+    width: 95px;
+    
+}
+.parrafo{
+    position: relative;
+    width: 500px;
+    left: 2%;
+}
+.img{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    left: 65%;
+    top: 10%;
+}

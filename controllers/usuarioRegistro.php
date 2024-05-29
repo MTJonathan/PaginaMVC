@@ -19,11 +19,11 @@
         $objUsuario = new Usuario();
 
         //Leer las variables enviadas
-        $objUsuario->usuario = "";
-        $objUsuario->nombres = "";
-        $objUsuario->apellidos = "";
-        $objUsuario->email = "";
-        $objUsuario->clave = "";
+        $usuario = "";
+        $nombres = "";
+        $apellidos = "";
+        $email = "";
+        $clave = "";
         $clave2 = "";
 
         //Armando la Vista
@@ -40,22 +40,36 @@
         //Leer las variables enviadas
         $clave = $_POST['txtClave'];
         $clave2 = $_POST['txtClave2'];
-        $objUsuario->usuario = $_POST['txtUsuario'];
-        $objUsuario->nombres = $_POST['txtNombres'];
-        $objUsuario->apellidos = $_POST['txtApellidos'];
-        $objUsuario->email = $_POST['txtEmail'];
+        $usuario = $_POST['txtUsuario'];
+        $nombres = $_POST['txtNombres'];
+        $apellidos = $_POST['txtApellidos'];
+        $email = $_POST['txtEmail'];
 
-        //Verificar que ambas claves coincidan
-        if(($clave == $clave2)){
-            $objUsuario->clave = password_hash($clave, PASSWORD_DEFAULT);
-            $objUsuario->setAgregar($objUsuario);
-            
-            //Redirigiendo a la pagina principal
-            header("Location: ".$GLOBALS['ruta_raiz']);
-        }else{
+        //Verificar si el usuario existe
+        $objUsuario = $objUsuario->getBuscarByUsuario($usuario);
+        if($objUsuario){
             //Armando la vista
-            $clave2 = "No coincide";
+            $usuario = "Usuario ya existente";
             require_once("views/usuario/registro.php");
+        }else{
+            //Verificar que ambas claves coincidan
+            if(($clave == $clave2)){
+                $objUsuario = new Usuario();
+                $objUsuario->usuario = $usuario;
+                $objUsuario->nombres = $nombres;
+                $objUsuario->apellidos = $apellidos;
+                $objUsuario->email = $email;
+                $objUsuario->clave = password_hash($clave, PASSWORD_DEFAULT);
+                $objUsuario->setAgregar($objUsuario);
+                
+                //Redirigiendo a la pagina principal
+                header("Location: ".$GLOBALS['ruta_raiz']);
+            }else{
+                //Armando la vista
+                $clave2 = "No coincide";
+                require_once("views/usuario/registro.php");
+            }
         }
+        
     }
 ?>

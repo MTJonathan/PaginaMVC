@@ -1,15 +1,15 @@
 /* Estilos generales del formulario */
-form {
-    width: 500px;
+.formulario-registro {
+    width: 400px;
     margin: 50px auto;
-    padding: 50px;
+    padding: 30px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.formulario-titulo {
     text-align: center;
     font-size: 28px;
     margin-bottom: 30px;
@@ -18,25 +18,24 @@ h1 {
 }
 
 /* Estilos para las filas y etiquetas de los campos */
-form table tr {
-    display:flexbox; /* Usar flexbox para alinear las celdas */
+.formulario-registro tr {
+    display: flex;
     margin-bottom: 15px;
 }
 
-form table td {
-    flex: 1; /* Distribuir el espacio equitativamente entre las celdas */
-    padding: 13px 10px; /* Espacio entre las celdas */
+.formulario-registro td {
+    flex: 1;
+    padding: 0 10px;
 }
 
-form table label {
+.formulario-label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
 /* Estilos para los campos de entrada */
-form table input[type="text"],
-form table input[type="email"] {
+.formulario-input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -45,9 +44,9 @@ form table input[type="email"] {
 }
 
 /* Estilos para los botones */
-form table button {
-    background-color: #007bff; /* Color azul */
-    color: white; /* Color de texto blanco */
+.boton-cancelar, .boton-guardar {
+    background-color: #007bff;
+    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -57,11 +56,6 @@ form table button {
     text-decoration: none; /* Elimina el subrayado del enlace */
 }
 
-form table button:hover {
-    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
-}
-
-form table button a { /* Estilos para el enlace dentro del botón */
-    color: white; /* Color de texto blanco */
-    text-decoration: none; /* Elimina el subrayado del enlace */
+.boton-cancelar:hover, .boton-guardar:hover {
+    background-color: #0056b3;
 }
