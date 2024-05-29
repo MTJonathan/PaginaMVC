@@ -1,0 +1,18 @@
+.contenedor-principal{
+    padding: 25px;
+    border-radius: 32px;
+    background-color: aqua;
+    margin: 5%;
+    width: 85%;
+}
+.contenedor{
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    position: relative;
+    width: 25%;
+    height: 200px;
+    background-color: brown;
+    border-radius: 32px;
+}
