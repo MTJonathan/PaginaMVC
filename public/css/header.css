@@ -5,6 +5,8 @@
     background-color: #333;
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s; /* Transición suave para el hover */
+    border-radius: 0.3s; 
 }
 
 .menu-principal .enlace {
@@ -16,7 +18,6 @@
     border: none;
     margin: 0 5px; /* Margen entre los enlaces */
     border-radius: 0; /* Sin bordes redondeados */
-    transition: background-color 0.3s ease; /* Transición suave para el hover */
 }
 
 /* Estilo para la página activa */
@@ -29,4 +30,8 @@ body[data-pagina="miUsuario"] .menu-principal .enlace[data-pagina="miUsuario"] {
 /* Efecto hover para los enlaces */
 .menu-principal .enlace:hover {
     background-color: #ddd; /* Color gris más claro al pasar el mouse */
+    border-radius: 20px;
+}
+.menu-principal:hover{
+    border-radius: 20px;
 }

@@ -1,18 +1,36 @@
 .contenedor-principal{
-    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 28px;
     border-radius: 32px;
     background-color: aqua;
     margin: 5%;
     width: 85%;
+    height: auto;
+    gap: 10px;
 }
 .contenedor{
-    padding: 25px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
     position: relative;
-    width: 25%;
-    height: 200px;
+    left: 30px;
+    margin: 20px;
+    width: 26%;
+    height: auto;
     background-color: brown;
     border-radius: 32px;
+    text-align:unset;
+}
+h1{
+    position: relative;
+    left: 6%;
+    top: 32px;
+    bottom: 6%;
+    width: 200px;
+}
+h2{
+    margin: 20px;
+}
+p{
+    position: relative;
+    width: 80%;
+    margin: 20px;
 }
