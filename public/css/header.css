@@ -32,6 +32,3 @@ body[data-pagina="miUsuario"] .menu-principal .enlace[data-pagina="miUsuario"] {
     background-color: #ddd; /* Color gris más claro al pasar el mouse */
     border-radius: 20px;
 }
-.menu-principal:hover{
-    border-radius: 20px;
-}
