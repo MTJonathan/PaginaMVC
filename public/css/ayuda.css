@@ -1,0 +1,14 @@
+.h1-ayuda{
+    position: relative;
+    left: 2%;
+}
+.preguntas{
+    width: 60%;
+    position: relative;
+    left: 2%;
+}
+.img{
+    position:-ms-page;
+    top: 80px;
+    left: 60%;
+}
